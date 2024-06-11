@@ -1,0 +1,30 @@
+urgent,3
+account,2
+verify,3
+login,2
+click here,3
+update,2
+security alert,3
+password,2
+bank,2
+credit card,2
+SSN,3
+social security,3
+confirm,2
+identity,2
+suspended,3
+limited,2
+restore,2
+access,2
+click,1
+open attachment,3
+action required,3
+unauthorized,3
+breach,3
+secure,2
+validate,2
+immediately,3
+phishing,3
+malware,3
+spyware,3
+fraud,3

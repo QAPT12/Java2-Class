@@ -1,0 +1,22 @@
+Subject: Urgent: Your Account Requires Immediate Verification
+
+Dear Customer,
+
+We have detected suspicious activity on your bank account. To protect your identity and ensure your account security, please verify your account information immediately.
+
+Click here to update your account and restore full access. Failure to do so within 24 hours will result in your account being suspended.
+
+Security Alert: Unauthorized access attempt detected. Immediate action required to prevent a security breach.
+
+Open attachment to view detailed report of the unauthorized attempt.
+
+Thank you for your cooperation.
+
+Best regards,
+Bank Security Team
+
+Note: This is an automated message. Please do not reply.
+
+---
+
+Confidentiality Notice: This email, including any attachments, is intended only for the recipient(s) named above. It contains confidential information and may be legally privileged. If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or use of the information contained herein is strictly prohibited. If you have received this email in error, please notify us immediately and delete this email from your system.
