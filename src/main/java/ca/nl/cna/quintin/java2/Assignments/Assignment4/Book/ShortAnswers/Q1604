@@ -1,0 +1,9 @@
+Q:
+    Explain why inserting additional elements into an ArrayList object whose current size is less than its capacity
+    is a relatively fast operation and why inserting additional elements into an ArrayList object whose current size
+    is at its capacity is a relatively slow operation.
+
+ANS:
+    When an ArrayList is initialized it is given a capacity and holds that much space. Adding objects up to the
+    capacity does not require allocating more memory. Once you add items beyond its capacity additional processing power
+    is needed to allocate the extra space in memory.

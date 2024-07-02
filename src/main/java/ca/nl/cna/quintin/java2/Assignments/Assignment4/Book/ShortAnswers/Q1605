@@ -1,0 +1,18 @@
+Briefly answer the following questions:
+
+What is the primary difference between a Set and a Map?
+
+    Sets are like a list, unordered and cannot contain duplicates.
+    Maps store the data in key-value pairs allowing it to be easily indexed and can contain duplicate values.
+
+What happens when you add a primitive type (e.g., double) value to a collection?
+
+    When you try to add a primitive value to a collection Java will implicitly switch it to it's wrapper class.
+    in other words if you try to add an int Java will automatically convert it to the wrapper class Integer.
+
+Can you print all the elements in a collection without using an Iterator? If yes, how?
+
+    Yes you can manually access the index of each item int the collection and print them out this way.
+    i.e. System.out.println(list[0]);
+         System.out.println(list[1]);
+         System.out.println(list[2]);
