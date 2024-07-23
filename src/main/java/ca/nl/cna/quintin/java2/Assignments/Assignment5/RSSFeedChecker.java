@@ -4,46 +4,57 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
-public class RSSFeedChecker implements Runnable{
+/**
+ * Periodically checks an RSS feed and adds new items to an RSS feed writer.
+ */
+public class RSSFeedChecker implements Runnable {
     private String URL;
     private RSSFeedWriter feedWriter;
 
+    /**
+     * Constructs an RSSFeedChecker with the specified URL and RSSFeedWriter.
+     *
+     * @param URL the URL of the RSS feed to check
+     * @param feedWriter the RSSFeedWriter to add new items to
+     */
     public RSSFeedChecker(String URL, RSSFeedWriter feedWriter) {
         this.URL = URL;
         this.feedWriter = feedWriter;
     }
 
+    /**
+     * Runs the RSS feed checker. Continuously checks the RSS feed for new items.
+     */
     @Override
     public void run() {
-        while(true) {
-            try{
+        while (true) {
+            try {
                 checkRSSFeed();
-            }
-            catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 break;
             }
         }
     }
 
-    public void checkRSSFeed(){
-        try{
-            java.net.URL url = new URL(URL);
-            //XML Document building
+    /**
+     * Checks the RSS feed for new items and adds them to the feed writer.
+     * Only processes the first three items in the feed.
+     */
+    public void checkRSSFeed() {
+        try {
+            URL url = new URL(URL);
+            // XML Document building
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(url.openStream());
 
-            //This is how you work with XML - you do not need to modify this!
+            // Process XML
             NodeList itemList = doc.getElementsByTagName("item");
 
             for (int i = 0; i < 3; i++) {
@@ -57,11 +68,8 @@ public class RSSFeedChecker implements Runnable{
                 }
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
 }

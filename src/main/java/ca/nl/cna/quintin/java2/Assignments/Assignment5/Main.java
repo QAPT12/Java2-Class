@@ -4,10 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Application class that initializes the RSS feed checker and writer to write RSSItems to the console.
+ */
 public class Main {
 
+    /**
+     * The main method that runs the application.
+     * It prompts the user to enter RSS feed URLs, starts threads to check the feeds, and writes new items.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
-        try(Scanner scanner = new Scanner(System.in)){
+        try (Scanner scanner = new Scanner(System.in)) {
             List<String> feedUrls = new ArrayList<>();
             final String end = "done";
             String url = "";
@@ -27,6 +36,5 @@ public class Main {
                 feedThread.start();
             }
         }
-
     }
 }
