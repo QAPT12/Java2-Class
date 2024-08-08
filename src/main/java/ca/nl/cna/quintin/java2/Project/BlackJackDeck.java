@@ -1,35 +1,33 @@
 package ca.nl.cna.quintin.java2.Project;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Class to represent a deck of playing cards.
- *
- * @author quintin.tuck
+ * Class to represent a BlackJack deck made up of three decks of playing cards.
  */
-public class PlayingCardDeck {
+public class BlackJackDeck {
 
     private ArrayList<PlayingCard> cardsArray;
 
     /**
-     * Constructor for the deck of cards. Loops through values 1 - 13 and adds a card for each suit to the array list.
+     * Constructor for the BlackJack deck. Creates three PlayingCardDecks and combines them.
      */
-    public PlayingCardDeck() {
+    public BlackJackDeck(int numDecks) {
         cardsArray = new ArrayList<>();
-        for (int i = 1; i <= 13 ; i++) {
-            this.cardsArray.add(new PlayingCard(i, PlayingCard.Suit.DIAMONDS));
-            this.cardsArray.add(new PlayingCard(i, PlayingCard.Suit.HEARTS));
-            this.cardsArray.add(new PlayingCard(i, PlayingCard.Suit.SPADES));
-            this.cardsArray.add(new PlayingCard(i, PlayingCard.Suit.CLUBS));
-        }
-    }
 
-    public ArrayList<PlayingCard> getCardsArray() {
-        return cardsArray;
+        // Create and add three PlayingCardDecks to the cardsArray
+        for (int i = 0; i < numDecks; i++) {
+            PlayingCardDeck deck = new PlayingCardDeck();
+            cardsArray.addAll(deck.getCardsArray());
+        }
+
+        // Shuffle the combined deck
+        shuffle();
     }
 
     /**
-     * printDeck. Method print out the contents of the deck.
+     * printDeck. Method to print out the contents of the deck.
      * @return Cards of the deck printed out in order.
      */
     public StringBuilder printDeck() {
@@ -60,9 +58,12 @@ public class PlayingCardDeck {
      * @return PlayingCard, the PlayingCard object in position 0 of the arraylist.
      */
     public PlayingCard draw(){
+        if (this.cardsArray.isEmpty()) {
+            throw new IllegalStateException("No cards left in the deck to draw");
+        }
         PlayingCard drawnCard = this.cardsArray.get(0);
         this.cardsArray.remove(0);
         return drawnCard;
     }
-
 }
+

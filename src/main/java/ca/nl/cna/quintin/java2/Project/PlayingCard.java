@@ -22,12 +22,14 @@ public class PlayingCard {
      * @param suit suit of the card i.e. "DIAMONDS".
      */
     public PlayingCard(int value, Suit suit) {
-        if(ACE <= value && value <= KING) {
-            this.value = value;
-        } else {
-            this.value = ACE;
+        if(value < ACE || value > KING) {
+            throw new IllegalArgumentException("Invalid value for card");
+        }
+        if(suit == null) {
+            throw new IllegalArgumentException("Must specify a suit");
         }
 
+        this.value = value;
         this.suit = suit;
     }
 
@@ -57,22 +59,22 @@ public class PlayingCard {
         String returnString = "";
 
         if(this.value == ACE){
-            returnString += "A ";
+            returnString += "A";
         } else if (this.value == JACK) {
-            returnString += "J ";
+            returnString += "J";
         } else if (this.value == QUEEN) {
-            returnString += "Q ";
+            returnString += "Q";
         } else if (this.value == KING){
-            returnString += "K ";
+            returnString += "K";
         } else {
-            returnString += this.value + " ";
+            returnString += this.value;
         }
 
         if(this.suit == Suit.DIAMONDS){
             returnString += "♦";
         } else if (this.suit == Suit.HEARTS) {
             returnString += "♥";
-        } else if (this.suit == Suit.SPADE) {
+        } else if (this.suit == Suit.SPADES) {
             returnString += "♠";
         } else if (this.suit == Suit.CLUBS) {
             returnString += "♣";
@@ -84,5 +86,5 @@ public class PlayingCard {
     /**
      * Stored values of the playing card suits.
      */
-    public enum Suit {DIAMONDS, HEARTS, CLUBS, SPADE}
+    public enum Suit {DIAMONDS, HEARTS, CLUBS, SPADES}
 }
