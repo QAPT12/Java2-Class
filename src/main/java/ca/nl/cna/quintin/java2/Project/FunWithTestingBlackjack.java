@@ -7,13 +7,13 @@ public class FunWithTestingBlackjack {
     public static void main(String[] args) {
         BlackJackDeck bjDeck = new BlackJackDeck(6);
 
-        Player player = new Player(100);
+        BlackJackHand hand = new BlackJackHand(new ArrayList<PlayingCard>());
 
-        System.out.println(player.getHand());
+        hand.addCardToHand(new PlayingCard(3, PlayingCard.Suit.SPADES));
+        hand.addCardToHand(new PlayingCard(1, PlayingCard.Suit.SPADES));
+        hand.addCardToHand(new PlayingCard(11, PlayingCard.Suit.SPADES));
 
-        player.getHand().addCardToHand(bjDeck.draw());
-
-        System.out.println(player.getHand());
+        System.out.println(hand.getScore());
 
 
     }

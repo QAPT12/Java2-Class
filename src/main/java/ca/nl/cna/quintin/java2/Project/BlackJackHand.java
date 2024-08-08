@@ -47,14 +47,20 @@ public class BlackJackHand {
      */
     public int getScore(){
         int score = 0;
+        int aceCount = 0;
         for (PlayingCard card: this.cardsInHand) {
             if(card.getValue() > 10) {
                 score += 10;
-            } else if(card.getValue() == 1 && score + 11 <= 21) {
+            } else if(card.getValue() == 1) {
                 score += 11;
+                aceCount++;
             } else {
                 score += card.getValue();
             }
+        }
+        while(score > 21 && aceCount > 0){
+            score -= 10;
+            aceCount--;
         }
         return score;
     }
